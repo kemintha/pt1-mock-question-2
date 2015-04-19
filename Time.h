@@ -4,6 +4,8 @@
 #ifndef TIME_H
 #define TIME_H
 using namespace std;
+
+
 class Time
 {
 private:
@@ -16,6 +18,11 @@ public:
 	void set(int, int);
 	void get(int&, int&);
 
+	friend ostream &operator <<(ostream&, Time&);
+	friend istream& operator >>(istream&, Time&);
+	
+	
+	
 
 
 };

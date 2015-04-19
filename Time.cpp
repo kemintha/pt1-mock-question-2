@@ -1,8 +1,8 @@
 //Declaration of methods for class time
-#include "Time.hpp"
+
 #include <iostream>
 #include <string>
-using namespace std;
+#include "Time.h"
 
 Time::Time(int a, int b)
 {
@@ -26,5 +26,19 @@ void Time::get(int &a, int &b)
 {
 	a = hour;
 	b = min;
+}
+ostream &operator<<(ostream& os, Time& time1)
+{
+	int h, m;
+	time1.get(h, m);
+	os << h << ":" << m << endl;
+	return os;
+}
+istream &operator>>(istream &is, Time &time1)
+{
+	int h, m;
+	is >> h >> m;
+	time1.set(h, m);
+	return is;
 }
 
