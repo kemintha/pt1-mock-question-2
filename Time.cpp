@@ -37,8 +37,45 @@ ostream &operator<<(ostream& os, Time& time1)
 istream &operator>>(istream &is, Time &time1)
 {
 	int h, m;
+	
 	is >> h >> m;
 	time1.set(h, m);
 	return is;
 }
+Time& Time::operator++() //prefix
+{
+	if (min == 59)
+	{
+		min = 0;
+		++hour;
+	}
+	else
+		++min;
+	return *this;
+}
 
+Time& Time::operator--() //prefix
+{
+	if (min == 0)
+	{
+		min = 59;
+		--hour;
+	}
+	else
+		--min;
+	return *this;
+}
+
+Time Time::operator++(int) //postfix
+{
+	Time temp(hour, min); //create temp
+	++(*this); //use prefix
+	return temp;
+}
+
+Time Time::operator--(int) //postfix
+{
+	Time temp(hour, min); //create temp
+	--(*this); //use prefix
+	return temp;
+}

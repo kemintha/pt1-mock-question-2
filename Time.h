@@ -21,8 +21,13 @@ public:
 	friend ostream &operator <<(ostream&, Time&);
 	friend istream& operator >>(istream&, Time&);
 	
-	
-	
+	//Prefix Inc and dec
+	Time& operator++();
+	Time& operator--();
+	//Postfix Inc and dec
+	Time operator++(int);
+	Time operator--(int);
+
 
 
 };
